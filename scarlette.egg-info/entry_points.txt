@@ -1,3 +1,0 @@
-[console_scripts]
-scarlette = scarlette.driver:run_scarlette
-
