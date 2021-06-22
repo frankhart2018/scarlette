@@ -13,7 +13,6 @@ class GithubRepoCreate(GithubTask):
         if self.__is_public not in ['y', 'n']:
             raise InvalidOption(message="Valid options are 'y' and 'n'")
 
-        self.__is_public = str(True) if self.__is_public == 'y' else str(False)
         self.__url: str = "https://github.com/new"
 
     def run(self, browser: webdriver.Chrome) -> None:
@@ -22,7 +21,7 @@ class GithubRepoCreate(GithubTask):
         repo_name_field = browser.find_element_by_xpath("//input[@id='repository_name']")
         repo_name_field.send_keys(self.__repo_name)
 
-        if not bool(self.__is_public):
+        if self.__is_public == 'n':
             repo_private_visibility_field = browser.find_element_by_xpath("//input[@id='repository_visibility_private']")
             repo_private_visibility_field.click()
 
