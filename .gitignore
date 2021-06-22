@@ -4,4 +4,4 @@ __pycache__
 .vscode
 build/
 dist/
-scarlette-egg.info
+scarlette.egg-info
